@@ -1,0 +1,133 @@
+# ---------------------------------------------------------------------------
+# Watchlist taken from the IBKR Favorites screenshots.
+# `name` is what shows up in alerts, `symbol` is what gets fetched.
+# `position` is optional and only adds context to the alert ("you hold 70").
+# ---------------------------------------------------------------------------
+
+instruments:
+  # --- core / mega cap -----------------------------------------------------
+  - {name: AAPL, symbol: AAPL, position: 15}
+  - {name: MSFT, symbol: MSFT, position: 25}
+  - {name: GOOG, symbol: GOOG, position: 37}
+  - {name: AMZN, symbol: AMZN}
+  - {name: META, symbol: META}
+  - {name: NVDA, symbol: NVDA}
+  - {name: AVGO, symbol: AVGO, position: 37}
+  - {name: ORCL, symbol: ORCL, position: 24}
+  - {name: AMD,  symbol: AMD}
+  - {name: INTC, symbol: INTC}
+  - {name: MU,   symbol: MU}
+  - {name: TSLA, symbol: TSLA}
+
+  # --- AI / data centre / compute -----------------------------------------
+  - {name: CRWV, symbol: CRWV, position: 70}
+  - {name: NBIS, symbol: NBIS}
+  - {name: IREN, symbol: IREN}
+  - {name: SNDK, symbol: SNDK}
+  - {name: GEV,  symbol: GEV}
+  - {name: LITE, symbol: LITE}
+  - {name: POET, symbol: POET}
+  - {name: AXTI, symbol: AXTI}
+  - {name: TTMI, symbol: TTMI}
+  - {name: WST,  symbol: WST}
+
+  # --- space / defence / new industrials ----------------------------------
+  - {name: RKLB, symbol: RKLB}
+  - {name: ASTS, symbol: ASTS}
+  - {name: BKSY, symbol: BKSY, position: 30}
+  - {name: ONDS, symbol: ONDS}
+  - {name: RIVN, symbol: RIVN}
+  - {name: CSIQ, symbol: CSIQ, position: 400}
+
+  # --- fintech / crypto-adjacent ------------------------------------------
+  - {name: HOOD, symbol: HOOD}
+  - {name: COIN, symbol: COIN}
+  - {name: CRCL, symbol: CRCL}
+  - {name: SOFI, symbol: SOFI}
+  - {name: IBKR, symbol: IBKR}
+  - {name: RDDT, symbol: RDDT, position: 5}
+  - {name: PRG,  symbol: PRG}
+
+  # --- ETFs and index ------------------------------------------------------
+  - {name: SPY, symbol: SPY,   asset_class: etf}
+  - {name: QQQ, symbol: QQQ,   asset_class: etf}
+  - {name: VOO, symbol: VOO,   asset_class: etf}
+  - {name: SPX, symbol: "^GSPC", asset_class: index}
+
+  # --- crypto, FX, futures -------------------------------------------------
+  # Your CL contract had expired; CL=F is the rolling front-month.
+  - {name: BTC,     symbol: BTC-USD,  asset_class: crypto}
+  - {name: EUR.USD, symbol: EURUSD=X, asset_class: fx}
+  - {name: GBP.USD, symbol: GBPUSD=X, asset_class: fx}
+  - {name: USD.JPY, symbol: JPY=X,    asset_class: fx}
+  - {name: CL,      symbol: CL=F,     asset_class: futures}
+
+# ---------------------------------------------------------------------------
+# What counts as oversold. Loosen `score_alert` for more alerts, raise it for
+# fewer. RSI <= 30 is the classic line; <= 20 is genuinely rare.
+# ---------------------------------------------------------------------------
+thresholds:
+  rsi_period: 14
+  rsi_oversold: 30
+  rsi_deep: 20
+  rsi_exit: 45          # an alert is "recovered" once RSI closes back above this
+  stoch_oversold: 20
+  williams_oversold: -80
+  cci_oversold: -100
+  mfi_oversold: 20
+  percent_b_oversold: 0.05
+  score_alert: 55       # composite 0-100 needed to notify
+  score_deep: 78        # composite that counts as deeply oversold
+
+# Relative pull of each indicator on the composite score.
+weights:
+  rsi: 34
+  stochastic: 16
+  williams: 12
+  percent_b: 16
+  cci: 10
+  mfi: 12
+
+lookback_days: 400      # enough history for a 200-day SMA and 52-week high
+cooldown_days: 5        # don't repeat the same alert more often than this
+notify_recovery: true   # also tell me when something climbs back out
+state_path: state/alerts.json
+report_dir: reports
+
+# ---------------------------------------------------------------------------
+# Where alerts go. Delete or set `enabled: false` on the ones you don't want.
+# Secrets are read from the environment via ${VAR} — never hard-code them.
+# ---------------------------------------------------------------------------
+notifiers:
+  - type: console
+    enabled: true
+
+  - type: file
+    enabled: true
+    directory: reports
+
+  # Phone push, no account needed: install the ntfy app, subscribe to a topic,
+  # then put that topic here. Pick something unguessable — topics are public.
+  - type: ntfy
+    enabled: false
+    topic: ${NTFY_TOPIC}
+    priority: high
+
+  # Gmail needs an App Password (Google Account -> Security -> App passwords).
+  - type: email
+    enabled: false
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    from: ${SMTP_USERNAME}
+    to:
+      - ${ALERT_EMAIL}
+
+  - type: webhook
+    enabled: false
+    url: ${WEBHOOK_URL}
+    format: discord      # slack | discord | json
+
+  - type: github_summary
+    enabled: true
