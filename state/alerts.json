@@ -1,0 +1,332 @@
+{
+  "instruments": {
+    "AAPL": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "AMD": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "AMZN": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "ASTS": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "AVGO": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "AXTI": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "BKSY": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 39.364108731941535,
+      "score": 11.0,
+      "severity": "watch"
+    },
+    "BTC-USD": {
+      "alerting": false,
+      "last_seen_on": "2026-09-10",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "CL=F": {
+      "alerting": false,
+      "last_seen_on": "2026-09-09",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "COIN": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "CRCL": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "CRWV": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "CSIQ": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "EURUSD=X": {
+      "alerting": false,
+      "last_seen_on": "2026-09-10",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "GBPUSD=X": {
+      "alerting": false,
+      "last_seen_on": "2026-09-10",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "GEV": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "GOOG": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 44.19804931566663,
+      "score": 1.0,
+      "severity": "watch"
+    },
+    "HOOD": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "IBKR": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "INTC": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "IREN": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "JPY=X": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-10",
+      "rsi": 24.965678580419237,
+      "score": 52.5,
+      "severity": "watch"
+    },
+    "LITE": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "META": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "MSFT": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "MU": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "NBIS": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "NVDA": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "ONDS": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 43.37972385038702,
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "ORCL": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "POET": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "PRG": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 38.88753492105871,
+      "score": 3.6,
+      "severity": "watch"
+    },
+    "QQQ": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "RDDT": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 44.06954676393647,
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "RIVN": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "RKLB": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 40.93796259622092,
+      "score": 3.0,
+      "severity": "watch"
+    },
+    "SNDK": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "SOFI": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "SPY": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "TSLA": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "TTMI": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "VOO": {
+      "alerting": false,
+      "last_seen_on": "2026-09-08",
+      "recovered_on": "2026-09-10",
+      "score": 0.0,
+      "severity": "neutral"
+    },
+    "WST": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-08",
+      "rsi": 40.86993293733964,
+      "score": 6.7,
+      "severity": "watch"
+    },
+    "^GSPC": {
+      "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 47.538726391320004,
+      "score": 3.9,
+      "severity": "watch"
+    }
+  },
+  "updated_at": "2026-09-10T00:16:29+00:00",
+  "version": 1
+}
