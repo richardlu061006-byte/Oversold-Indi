@@ -389,3 +389,69 @@ def test_force_labels_a_suppressed_alert_as_a_reminder(wired, tmp_path):
     cli.main(["-c", str(config_path), "run", "--force"])
     html = (tmp_path / "reports" / "oversold-latest.html").read_text()
     assert "still oversold" in html
+
+
+# ------------------------------------------------------- partial-bar handling
+
+
+def _frame_ending(last_day: str, days: int = 40):
+    index = pd.bdate_range(end=pd.Timestamp(last_day), periods=days)
+    return pd.DataFrame(
+        {c: np.linspace(100, 90, days) for c in providers.REQUIRED_COLUMNS}, index=index
+    )
+
+
+def test_partial_bar_is_dropped_during_the_session():
+    frame = _frame_ending("2026-09-09")
+    now = pd.Timestamp("2026-09-09 09:50", tz="America/New_York")
+    out = providers.drop_partial_bar(frame, now)
+    assert len(out) == len(frame) - 1
+    assert out.index[-1].date().isoformat() == "2026-09-08"
+
+
+def test_completed_bar_is_kept_after_the_close():
+    frame = _frame_ending("2026-09-09")
+    now = pd.Timestamp("2026-09-09 18:15", tz="America/New_York")
+    assert len(providers.drop_partial_bar(frame, now)) == len(frame)
+
+
+def test_yesterdays_last_bar_is_never_dropped():
+    """Data already lagging a day must not be trimmed a second time."""
+    frame = _frame_ending("2026-09-08")
+    now = pd.Timestamp("2026-09-09 09:50", tz="America/New_York")
+    assert len(providers.drop_partial_bar(frame, now)) == len(frame)
+
+
+def test_drop_partial_bar_handles_an_empty_frame():
+    empty = pd.DataFrame(columns=list(providers.REQUIRED_COLUMNS))
+    assert providers.drop_partial_bar(empty).empty
+
+
+def test_exclude_partial_bar_flag_reaches_the_scan(tmp_path, monkeypatch):
+    seen = {}
+
+    def stub(symbol, days, order):
+        return providers.History(symbol, make_frame(crashing()), "stub")
+
+    def spy(frame):
+        seen["called"] = True
+        return frame
+
+    monkeypatch.setattr(cli, "fetch_history", stub)
+    monkeypatch.setattr(cli, "drop_partial_bar", spy)
+    path = tmp_path / "config.yml"
+    path.write_text(f"""
+instruments: [NVDA]
+exclude_partial_bar: true
+state_path: {tmp_path / 'state.json'}
+notifiers: [{{type: file, directory: {tmp_path / 'r'}}}]
+""")
+    monkeypatch.chdir(tmp_path)
+    assert cli.main(["-c", str(path), "run"]) == 0
+    assert seen.get("called") is True
+
+
+def test_exclude_partial_bar_defaults_to_off(tmp_path):
+    path = tmp_path / "config.yml"
+    path.write_text("instruments: [AAPL]\n")
+    assert load_config(path).exclude_partial_bar is False

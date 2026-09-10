@@ -76,6 +76,7 @@ class Config:
     lookback_days: int = 400
     cooldown_days: int = 5
     notify_recovery: bool = True
+    exclude_partial_bar: bool = False
     state_path: Path = Path("state/alerts.json")
     report_dir: Path = Path("reports")
 
@@ -118,6 +119,7 @@ def load_config(path: str | Path) -> Config:
         lookback_days=int(raw.get("lookback_days", 400)),
         cooldown_days=int(raw.get("cooldown_days", 5)),
         notify_recovery=bool(raw.get("notify_recovery", True)),
+        exclude_partial_bar=bool(raw.get("exclude_partial_bar", False)),
         state_path=Path(raw.get("state_path", "state/alerts.json")),
         report_dir=Path(raw.get("report_dir", "reports")),
     )

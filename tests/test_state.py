@@ -132,3 +132,25 @@ def test_instruments_are_tracked_independently(state):
 
     intc = state.decide(reading(symbol="INTC"), 5, False, True)
     assert intc.should_notify and intc.kind == "new"
+
+
+def test_healthy_instrument_is_not_recorded_as_a_recovery(state):
+    """A never-alerting name reading healthy is normal, not a recovery."""
+    healthy = reading(severity="neutral", score=0.0, rsi=58.0)
+    healthy.triggers = []
+    state.record(healthy, state.decide(healthy, 5, True, True), True)
+
+    entry = state.entry("AMD")
+    assert "recovered_on" not in entry
+    assert entry["rsi"] == 58.0        # the useful reading is kept
+    assert entry["alerting"] is False
+
+
+def test_real_recovery_is_still_recorded_as_one(state):
+    first = reading()
+    state.record(first, state.decide(first, 5, False, True), False)
+
+    back = reading(severity="neutral", rsi=58.0)
+    back.triggers = []
+    state.record(back, state.decide(back, 5, True, True), True)
+    assert state.entry("AMD")["recovered_on"] == date.today().isoformat()

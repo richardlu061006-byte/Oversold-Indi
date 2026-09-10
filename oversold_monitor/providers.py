@@ -135,3 +135,28 @@ def fetch_history(
         errors.append(f"{name}: only {len(frame)} rows")
 
     raise ProviderError(f"{symbol}: all providers failed ({'; '.join(errors)})")
+
+
+def drop_partial_bar(frame: pd.DataFrame, now: "pd.Timestamp | None" = None) -> pd.DataFrame:
+    """Drop today's still-forming daily bar.
+
+    A scan during market hours sees a bar built from only part of the session,
+    so its RSI can swing on the opening print and flip back by lunchtime.
+    Dropping it means indicators are computed on completed sessions only —
+    stable readings, at the cost of being one session behind.
+    """
+    from zoneinfo import ZoneInfo
+
+    if frame.empty:
+        return frame
+
+    eastern = ZoneInfo("America/New_York")
+    now = pd.Timestamp.now(tz=eastern) if now is None else now
+    # Before 16:00 ET the US session has not settled; after it, today is final.
+    if now.hour >= 16:
+        return frame
+
+    last = frame.index[-1]
+    if last.date() == now.date():
+        return frame.iloc[:-1]
+    return frame

@@ -130,15 +130,39 @@ That sends one sample alert through every enabled channel.
 
 ### GitHub Actions (nothing to keep running)
 
-`.github/workflows/oversold.yml` runs at **22:15 UTC on weekdays** — after the
-US close in both EDT and EST, so it needs no daylight-saving fiddling. It commits
-`state/alerts.json` back to the repo, which is what makes the cooldown survive
-between runs.
+`.github/workflows/oversold.yml` runs at **09:50 America/New_York every
+weekday** — 20 minutes after the US open. It commits `state/alerts.json` back to
+the repo, which is what makes the cooldown survive between runs.
 
 Add your secrets under **Settings → Secrets and variables → Actions**
 (`NTFY_TOPIC`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `ALERT_EMAIL`, `WEBHOOK_URL` —
-only the ones you use), then enable the workflow. You can also trigger it by
-hand from the Actions tab, with a "force" checkbox that ignores the cooldown.
+only the ones you use). You can also trigger it by hand from the Actions tab,
+with a "force" checkbox that ignores the cooldown.
+
+**How the fixed local time is held.** GitHub cron is UTC-only with no timezone
+support, so a single entry drifts by an hour at each daylight-saving switch.
+Two are scheduled instead — 13:50 UTC (09:50 EDT) and 14:50 UTC (09:50 EST) —
+and the workflow's first step checks the actual Eastern time, letting only the
+one near 09:50 ET proceed. The other exits in seconds without using a runner.
+The accepted window is 09:20–10:35 ET, because GitHub's scheduler is
+best-effort and commonly fires 5–20 minutes late; a run delayed past that is
+skipped rather than arriving at lunchtime.
+
+To move the time, shift both cron lines by the same amount and adjust the
+window bounds in the "Check the local time" step (they are minutes past
+midnight — 560 and 635).
+
+Two things to check once, or it will look like nothing is happening:
+
+1. **Scheduled workflows only run from the repository's default branch.** If
+   you move this code to another branch, the cron stops firing.
+2. **Settings → Actions → General → Workflow permissions** must be
+   *Read and write*, or the step that commits the alert state fails and every
+   run starts with an empty cooldown.
+
+GitHub also disables scheduled workflows after 60 days with no repository
+activity; the daily state commit normally counts, and if it ever does trigger
+you'll get an email with a one-click re-enable.
 
 ### Local cron
 
@@ -146,12 +170,25 @@ hand from the Actions tab, with a "force" checkbox that ignores the cooldown.
 15 22 * * 1-5 cd /path/to/Claude && /usr/bin/python3 -m oversold_monitor run >> monitor.log 2>&1
 ```
 
+### Partial bars
+
+Because 09:50 ET is inside the session, today's daily bar is only 20 minutes
+old when the scan runs, and an RSI computed on it can swing on the opening
+print and reverse by lunchtime. `exclude_partial_bar: true` (set in
+`config.yml`) drops that in-progress bar so indicators use completed sessions
+only — stable readings, at the cost of being one session behind. Set it to
+`false` to score the live bar instead, which reacts faster and flip-flops more.
+
+It has no effect on a run scheduled after 16:00 ET, where the day's bar is
+already final.
+
 ### Intraday
 
-Nothing stops you running it more often — change the cron to `*/30 13-21 * * 1-5`
-for a half-hourly check during market hours. The indicators are still computed on
-daily bars, so the last bar just updates as the session goes; the cooldown keeps
-the alert volume sane.
+Nothing stops you running it more often — replace the two cron lines with
+`*/30 13-20 * * 1-5` for a half-hourly check through the session, and delete
+the "Check the local time" step. You'd also want `exclude_partial_bar: false`,
+or every scan in the day would return the same completed-bar answer. The
+cooldown keeps the alert volume sane.
 
 ## Configuration
 
@@ -181,6 +218,7 @@ thresholds:
   rsi_oversold: 30    # the classic line; 25 is stricter
 cooldown_days: 5      # minimum gap between repeat alerts for the same name
 notify_recovery: true # also tell me when something climbs back out
+exclude_partial_bar: true  # ignore today's in-progress bar (see below)
 ```
 
 Getting too many alerts? Raise `score_alert` to 65. Too few? Drop it to 45.
@@ -194,12 +232,13 @@ rather than sinking the whole run.
 ## Tests
 
 ```bash
-python -m pytest tests/ -q     # 65 tests
+python -m pytest tests/ -q     # 76 tests
 ```
 
 RSI is verified against Wilder's published worked example to two decimal places;
 the rest covers scoring, severity, the de-duplication rules, config parsing,
-provider fallback, notifier dispatch, and end-to-end runs against stubbed data.
+provider fallback and normalisation, partial-bar trimming, notifier dispatch,
+and end-to-end runs against stubbed data.
 
 ## Commands
 

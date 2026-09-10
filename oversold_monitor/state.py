@@ -98,7 +98,11 @@ class AlertState:
 
     def record(self, reading: Reading, decision: Decision, recovered: bool) -> None:
         """Persist the outcome for this instrument."""
-        if recovered:
+        prior = self.entry(reading.symbol)
+        # `recovered` only means "RSI is back above the exit line" — for an
+        # instrument that was never alerting that is just a normal healthy
+        # reading, and stamping it as a recovery would be a lie.
+        if recovered and bool(prior.get("alerting")):
             self.data["instruments"][reading.symbol] = {
                 "severity": reading.severity,
                 "alerting": False,
@@ -108,7 +112,6 @@ class AlertState:
             }
             return
 
-        prior = self.entry(reading.symbol)
         alerting = SEVERITY_ORDER.get(reading.severity, 0) >= SEVERITY_ORDER["oversold"]
         record: dict[str, Any] = {
             "severity": reading.severity,

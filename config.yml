@@ -91,6 +91,12 @@ weights:
 lookback_days: 400      # enough history for a 200-day SMA and 52-week high
 cooldown_days: 5        # don't repeat the same alert more often than this
 notify_recovery: true   # also tell me when something climbs back out
+
+# The scan runs at 09:50 ET, 20 minutes into the session, when today's daily
+# bar is only partly formed and its RSI can swing on the opening print. With
+# this on, indicators use completed sessions only: stable readings, one
+# session behind. Set false to score the live, in-progress bar instead.
+exclude_partial_bar: true
 state_path: state/alerts.json
 report_dir: reports
 

@@ -10,7 +10,7 @@ from pathlib import Path
 
 from .config import Config, Instrument, load_config
 from .notify import build_notifiers, build_payload, dispatch
-from .providers import ProviderError, fetch_history
+from .providers import ProviderError, drop_partial_bar, fetch_history
 from .report import render_text
 from .screener import Reading, evaluate, has_recovered, is_alertable
 from .state import AlertState
@@ -26,8 +26,11 @@ def _scan_one(instrument: Instrument, config: Config) -> Reading | None:
     except ProviderError as exc:
         log.warning("skipping %s: %s", instrument.name, exc)
         return None
+    frame = history.frame
+    if config.exclude_partial_bar:
+        frame = drop_partial_bar(frame)
     try:
-        return evaluate(instrument, history.frame, config, source=history.source)
+        return evaluate(instrument, frame, config, source=history.source)
     except Exception as exc:
         log.warning("could not evaluate %s: %s", instrument.name, exc)
         return None

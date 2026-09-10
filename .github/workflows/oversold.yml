@@ -2,9 +2,14 @@ name: Oversold monitor
 
 on:
   schedule:
-    # 22:15 UTC on weekdays — after the US close in both EDT (18:15 ET) and
-    # EST (17:15 ET), so it needs no daylight-saving adjustment.
-    - cron: '15 22 * * 1-5'
+    # Target: 09:50 America/New_York, every weekday.
+    #
+    # GitHub cron is UTC-only and has no timezone support, so a single entry
+    # would drift by an hour at each daylight-saving switch. Both candidate
+    # times are scheduled and the "Check the local time" step below lets only
+    # the one that lands near 09:50 ET actually run.
+    - cron: '50 13 * * 1-5'   # 09:50 EDT (summer, UTC-4)
+    - cron: '50 14 * * 1-5'   # 09:50 EST (winter, UTC-5)
   workflow_dispatch:
     inputs:
       force:
@@ -28,17 +33,42 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Check the local time
+        id: window
+        # Only one of the two cron entries is correct on any given date. A
+        # manual run always proceeds. The window is deliberately wide because
+        # GitHub's scheduler is best-effort and often fires late.
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual run — proceeding."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          now=$(TZ=America/New_York date +%H%M)
+          mins=$(( 10#${now:0:2} * 60 + 10#${now:2:2} ))
+          if [ "$mins" -ge 560 ] && [ "$mins" -le 635 ]; then   # 09:20–10:35 ET
+            echo "Local time is ${now:0:2}:${now:2:2} ET — proceeding."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Local time is ${now:0:2}:${now:2:2} ET — outside the 09:50 window, skipping."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.window.outputs.proceed == 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.window.outputs.proceed == 'true'
         with:
           python-version: '3.11'
           cache: pip
 
       - name: Install dependencies
+        if: steps.window.outputs.proceed == 'true'
         run: pip install -r requirements.txt
 
       - name: Run the monitor
+        if: steps.window.outputs.proceed == 'true'
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
@@ -53,7 +83,7 @@ jobs:
       - name: Persist alert state
         # Without this the cooldown resets every run and you get the same
         # alert every weekday for as long as the condition lasts.
-        if: always()
+        if: always() && steps.window.outputs.proceed == 'true'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -67,7 +97,7 @@ jobs:
           fi
 
       - name: Upload the report
-        if: always()
+        if: always() && steps.window.outputs.proceed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: oversold-report
