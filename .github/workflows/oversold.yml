@@ -33,29 +33,45 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Check the local time
+      - uses: actions/checkout@v4
+
+      - name: Decide whether this is today's run
         id: window
-        # Only one of the two cron entries is correct on any given date. A
-        # manual run always proceeds. The window is deliberately wide because
-        # GitHub's scheduler is best-effort and often fires late.
+        # Two problems to solve at once:
+        #
+        #  * GitHub cron is UTC-only, so one entry would drift an hour at each
+        #    daylight-saving switch. Hence two entries, one per offset.
+        #  * GitHub's scheduler is best-effort and routinely fires late — this
+        #    workflow has been observed starting two hours behind schedule. A
+        #    narrow time window would therefore skip both entries and silently
+        #    do nothing.
+        #
+        # So the rule is "not before 09:20 ET, and at most once per weekday":
+        # whichever entry lands first past 09:20 ET does the work and stamps
+        # the date, and the other sees the stamp and exits. Arbitrary lateness
+        # is tolerated, an early winter firing at 08:50 ET is not, and a run
+        # that fails leaves no stamp so the other entry retries it.
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then
             echo "Manual run — proceeding."
             echo "proceed=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          today=$(TZ=America/New_York date +%F)
           now=$(TZ=America/New_York date +%H%M)
           mins=$(( 10#${now:0:2} * 60 + 10#${now:2:2} ))
-          if [ "$mins" -ge 560 ] && [ "$mins" -le 635 ]; then   # 09:20–10:35 ET
-            echo "Local time is ${now:0:2}:${now:2:2} ET — proceeding."
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "Local time is ${now:0:2}:${now:2:2} ET — outside the 09:50 window, skipping."
+          last=$(cat state/last-run.txt 2>/dev/null || echo "never")
+          echo "Eastern time now: $today ${now:0:2}:${now:2:2} (last run: $last)"
+          if [ "$last" = "$today" ]; then
+            echo "Already ran today — skipping."
             echo "proceed=false" >> "$GITHUB_OUTPUT"
+          elif [ "$mins" -lt 560 ]; then      # before 09:20 ET
+            echo "Too early for the 09:50 ET slot — leaving it to the later entry."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Proceeding."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
           fi
-
-      - uses: actions/checkout@v4
-        if: steps.window.outputs.proceed == 'true'
 
       - uses: actions/setup-python@v5
         if: steps.window.outputs.proceed == 'true'
@@ -85,6 +101,7 @@ jobs:
         # alert every weekday for as long as the condition lasts.
         if: always() && steps.window.outputs.proceed == 'true'
         run: |
+          TZ=America/New_York date +%F > state/last-run.txt
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A state

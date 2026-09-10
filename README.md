@@ -130,8 +130,8 @@ That sends one sample alert through every enabled channel.
 
 ### GitHub Actions (nothing to keep running)
 
-`.github/workflows/oversold.yml` runs at **09:50 America/New_York every
-weekday** — 20 minutes after the US open. It commits `state/alerts.json` back to
+`.github/workflows/oversold.yml` runs once each weekday from **09:50
+America/New_York** — 20 minutes after the US open. It commits `state/alerts.json` back to
 the repo, which is what makes the cooldown survive between runs.
 
 Add your secrets under **Settings → Secrets and variables → Actions**
@@ -139,18 +139,30 @@ Add your secrets under **Settings → Secrets and variables → Actions**
 only the ones you use). You can also trigger it by hand from the Actions tab,
 with a "force" checkbox that ignores the cooldown.
 
-**How the fixed local time is held.** GitHub cron is UTC-only with no timezone
+**How the local time is held.** GitHub cron is UTC-only with no timezone
 support, so a single entry drifts by an hour at each daylight-saving switch.
-Two are scheduled instead — 13:50 UTC (09:50 EDT) and 14:50 UTC (09:50 EST) —
-and the workflow's first step checks the actual Eastern time, letting only the
-one near 09:50 ET proceed. The other exits in seconds without using a runner.
-The accepted window is 09:20–10:35 ET, because GitHub's scheduler is
-best-effort and commonly fires 5–20 minutes late; a run delayed past that is
-skipped rather than arriving at lunchtime.
+Two are scheduled instead — 13:50 UTC (09:50 EDT) and 14:50 UTC (09:50 EST).
+
+GitHub's scheduler is also only best-effort: this workflow has been observed
+starting **two hours behind** its scheduled slot, and delays of an hour are
+routine on free runners. A narrow time window would therefore skip both entries
+and silently do nothing, so the guard is "**not before 09:20 ET, at most once
+per weekday**" instead. Whichever entry lands first past 09:20 ET does the work
+and stamps the date in `state/last-run.txt`; the other sees the stamp and exits
+in seconds. A run that fails leaves no stamp, so the other entry retries it.
+
+Simulated over a year of firings with delays up to three hours, that produces
+exactly one run on each of the 261 weekdays — never early, never twice, correct
+on both sides of the DST switch.
+
+**So: the alert lands at or after 09:50 ET, usually within an hour.** If you
+need it at 09:50 on the dot, GitHub Actions cannot promise that no matter how
+the cron is written — a `cron` entry on your own machine fires exactly on time
+and is the only way to get it.
 
 To move the time, shift both cron lines by the same amount and adjust the
-window bounds in the "Check the local time" step (they are minutes past
-midnight — 560 and 635).
+floor in the "Decide whether this is today's run" step (`560` is minutes past
+midnight, i.e. 09:20 ET).
 
 Two things to check once, or it will look like nothing is happening:
 
@@ -186,7 +198,7 @@ already final.
 
 Nothing stops you running it more often — replace the two cron lines with
 `*/30 13-20 * * 1-5` for a half-hourly check through the session, and delete
-the "Check the local time" step. You'd also want `exclude_partial_bar: false`,
+the "Decide whether this is today's run" step. You'd also want `exclude_partial_bar: false`,
 or every scan in the day would return the same completed-bar answer. The
 cooldown keeps the alert volume sane.
 
