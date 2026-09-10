@@ -2,43 +2,55 @@
   "instruments": {
     "AAPL": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 49.40155104442532,
       "score": 0.0,
       "severity": "neutral"
     },
     "AMD": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 60.43360246499874,
       "score": 0.0,
       "severity": "neutral"
     },
     "AMZN": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
-      "score": 0.0,
-      "severity": "neutral"
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 44.06238001461161,
+      "score": 14.2,
+      "severity": "watch"
     },
     "ASTS": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 47.480983464113606,
       "score": 0.0,
       "severity": "neutral"
     },
     "AVGO": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 43.19351982019569,
       "score": 0.0,
       "severity": "neutral"
     },
     "AXTI": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 52.296000212072386,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -46,71 +58,89 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 39.364108731941535,
-      "score": 11.0,
+      "last_seen_on": "2026-09-09",
+      "rsi": 37.95465589694985,
+      "score": 7.6,
       "severity": "watch"
     },
     "BTC-USD": {
       "alerting": false,
-      "last_seen_on": "2026-09-10",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 59.3634341145649,
       "score": 0.0,
       "severity": "neutral"
     },
     "CL=F": {
       "alerting": false,
+      "first_alert_on": null,
+      "last_notified_on": null,
       "last_seen_on": "2026-09-09",
-      "recovered_on": "2026-09-10",
+      "rsi": 71.71863295878396,
       "score": 0.0,
       "severity": "neutral"
     },
     "COIN": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 51.25367610608766,
       "score": 0.0,
       "severity": "neutral"
     },
     "CRCL": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 57.34482204797325,
       "score": 0.0,
       "severity": "neutral"
     },
     "CRWV": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 55.890629083503775,
       "score": 0.0,
       "severity": "neutral"
     },
     "CSIQ": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 44.0014723820449,
       "score": 0.0,
       "severity": "neutral"
     },
     "EURUSD=X": {
       "alerting": false,
-      "last_seen_on": "2026-09-10",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 56.38274256693587,
       "score": 0.0,
       "severity": "neutral"
     },
     "GBPUSD=X": {
       "alerting": false,
-      "last_seen_on": "2026-09-10",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 52.72159737309223,
       "score": 0.0,
       "severity": "neutral"
     },
     "GEV": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 46.75794954309517,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -118,36 +148,44 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 44.19804931566663,
-      "score": 1.0,
+      "last_seen_on": "2026-09-09",
+      "rsi": 38.97142958075548,
+      "score": 21.5,
       "severity": "watch"
     },
     "HOOD": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 58.631037250184534,
       "score": 0.0,
       "severity": "neutral"
     },
     "IBKR": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
-      "score": 0.0,
-      "severity": "neutral"
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 46.16545035292995,
+      "score": 2.2,
+      "severity": "watch"
     },
     "INTC": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 63.360951475278355,
       "score": 0.0,
       "severity": "neutral"
     },
     "IREN": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 57.17102510665074,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -155,50 +193,62 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-10",
-      "rsi": 24.965678580419237,
-      "score": 52.5,
+      "last_seen_on": "2026-09-09",
+      "rsi": 24.70457032290102,
+      "score": 54.2,
       "severity": "watch"
     },
     "LITE": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 60.06107770291973,
       "score": 0.0,
       "severity": "neutral"
     },
     "META": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 70.42816406233379,
       "score": 0.0,
       "severity": "neutral"
     },
     "MSFT": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 54.81748936207045,
       "score": 0.0,
       "severity": "neutral"
     },
     "MU": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 60.61458265789309,
       "score": 0.0,
       "severity": "neutral"
     },
     "NBIS": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 57.16113278888999,
       "score": 0.0,
       "severity": "neutral"
     },
     "NVDA": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 54.316585427961925,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -206,22 +256,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 43.37972385038702,
-      "score": 0.0,
-      "severity": "neutral"
+      "last_seen_on": "2026-09-09",
+      "rsi": 40.09405510593499,
+      "score": 4.3,
+      "severity": "watch"
     },
     "ORCL": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 62.42056416270158,
       "score": 0.0,
       "severity": "neutral"
     },
     "POET": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 49.16289553423367,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -229,15 +283,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 38.88753492105871,
-      "score": 3.6,
+      "last_seen_on": "2026-09-09",
+      "rsi": 36.515455624580376,
+      "score": 12.9,
       "severity": "watch"
     },
     "QQQ": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 51.66458103813614,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -245,15 +301,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 44.06954676393647,
-      "score": 0.0,
-      "severity": "neutral"
+      "last_seen_on": "2026-09-09",
+      "rsi": 42.350962064836764,
+      "score": 6.3,
+      "severity": "watch"
     },
     "RIVN": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 49.34066791787817,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -261,60 +319,72 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 40.93796259622092,
-      "score": 3.0,
+      "last_seen_on": "2026-09-09",
+      "rsi": 36.82573641906801,
+      "score": 9.1,
       "severity": "watch"
     },
     "SNDK": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 62.24144944940994,
       "score": 0.0,
       "severity": "neutral"
     },
     "SOFI": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
-      "score": 0.0,
-      "severity": "neutral"
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 45.09648576195926,
+      "score": 4.9,
+      "severity": "watch"
     },
     "SPY": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
-      "score": 0.0,
-      "severity": "neutral"
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 48.068097156083276,
+      "score": 1.4,
+      "severity": "watch"
     },
     "TSLA": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 55.56596621619883,
       "score": 0.0,
       "severity": "neutral"
     },
     "TTMI": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 49.20341264793322,
       "score": 0.0,
       "severity": "neutral"
     },
     "VOO": {
       "alerting": false,
-      "last_seen_on": "2026-09-08",
-      "recovered_on": "2026-09-10",
-      "score": 0.0,
-      "severity": "neutral"
+      "first_alert_on": null,
+      "last_notified_on": null,
+      "last_seen_on": "2026-09-09",
+      "rsi": 48.11993557497912,
+      "score": 1.1,
+      "severity": "watch"
     },
     "WST": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-09-08",
-      "rsi": 40.86993293733964,
-      "score": 6.7,
+      "last_seen_on": "2026-09-09",
+      "rsi": 40.07349415127591,
+      "score": 18.4,
       "severity": "watch"
     },
     "^GSPC": {
@@ -322,11 +392,11 @@
       "first_alert_on": null,
       "last_notified_on": null,
       "last_seen_on": "2026-09-09",
-      "rsi": 47.538726391320004,
+      "rsi": 47.53872639131887,
       "score": 3.9,
       "severity": "watch"
     }
   },
-  "updated_at": "2026-09-10T00:16:29+00:00",
+  "updated_at": "2026-09-10T17:14:33+00:00",
   "version": 1
 }
