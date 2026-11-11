@@ -4,8 +4,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 57.60885232839867,
+      "last_seen_on": "2026-11-11",
+      "rsi": 60.42310907162777,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -13,8 +13,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 47.67124148702132,
+      "last_seen_on": "2026-11-11",
+      "rsi": 53.6281965081188,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -22,8 +22,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 59.22972159047573,
+      "last_seen_on": "2026-11-11",
+      "rsi": 57.343131193842005,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -31,8 +31,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-15",
-      "last_seen_on": "2026-11-09",
-      "rsi": 39.88675256629533,
+      "last_seen_on": "2026-11-11",
+      "rsi": 41.550127158804344,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -40,26 +40,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 44.69341918419031,
-      "score": 1.4,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 53.909845440206006,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "AXTI": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 38.43251370448877,
-      "score": 13.5,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 43.77879306150366,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "BKSY": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 65.88132735656984,
+      "last_seen_on": "2026-11-11",
+      "rsi": 66.27819356504028,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -67,53 +67,53 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 38.00472818663581,
-      "score": 8.3,
+      "last_seen_on": "2026-11-11",
+      "rsi": 38.04839521715703,
+      "score": 4.7,
       "severity": "watch"
     },
     "CL=F": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 37.719465879464394,
-      "score": 22.5,
+      "last_seen_on": "2026-11-11",
+      "rsi": 37.50293520459129,
+      "score": 18.7,
       "severity": "watch"
     },
     "COIN": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 34.5011766687916,
-      "score": 22.3,
+      "last_seen_on": "2026-11-11",
+      "rsi": 36.30715276801771,
+      "score": 11.9,
       "severity": "watch"
     },
     "CRCL": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 34.46467021250825,
-      "score": 18.8,
+      "last_seen_on": "2026-11-11",
+      "rsi": 35.97075451037489,
+      "score": 15.7,
       "severity": "watch"
     },
     "CRWV": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 35.987003099242145,
+      "last_seen_on": "2026-11-11",
+      "rsi": 49.721806194937756,
       "score": 0.0,
-      "severity": "watch"
+      "severity": "neutral"
     },
     "CSIQ": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 53.70747361359947,
+      "last_seen_on": "2026-11-11",
+      "rsi": 47.74878936389605,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -121,26 +121,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-14",
-      "last_seen_on": "2026-11-09",
-      "rsi": 37.4387032418266,
-      "score": 0.0,
-      "severity": "neutral"
+      "last_seen_on": "2026-11-11",
+      "rsi": 36.50234684053839,
+      "score": 32.3,
+      "severity": "watch"
     },
     "GBPUSD=X": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 49.70389609402785,
-      "score": 0.0,
-      "severity": "neutral"
+      "last_seen_on": "2026-11-11",
+      "rsi": 43.02051132832252,
+      "score": 13.6,
+      "severity": "watch"
     },
     "GEV": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 43.29473280642384,
+      "last_seen_on": "2026-11-11",
+      "rsi": 41.72759184361976,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -148,26 +148,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-04",
-      "last_seen_on": "2026-11-09",
-      "rsi": 31.911362360840073,
-      "score": 2.2,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 36.94529275175629,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "HOOD": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 35.77124704094875,
-      "score": 0.6,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 39.141145791683094,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "IBKR": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 42.8130969951083,
+      "last_seen_on": "2026-11-11",
+      "rsi": 51.986698619499215,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -175,26 +175,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-02",
-      "last_seen_on": "2026-11-09",
-      "rsi": 29.48384444202334,
-      "score": 14.1,
+      "last_seen_on": "2026-11-11",
+      "rsi": 34.20017653267443,
+      "score": 0.8,
       "severity": "watch"
     },
     "IREN": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-19",
-      "last_seen_on": "2026-11-09",
-      "rsi": 35.97175146034927,
-      "score": 0.6,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 36.56433786128182,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "JPY=X": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 53.89970666408055,
+      "last_seen_on": "2026-11-11",
+      "rsi": 63.2341731243344,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -202,10 +202,10 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-06",
-      "last_seen_on": "2026-11-09",
-      "rsi": 35.20153686367553,
-      "score": 14.6,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 40.59447084302627,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "META": {
       "alerting": false,
@@ -220,8 +220,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 57.46509757854338,
+      "last_seen_on": "2026-11-11",
+      "rsi": 47.68194037128753,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -229,35 +229,35 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-06",
-      "last_seen_on": "2026-11-09",
-      "rsi": 36.357943854077675,
-      "score": 12.2,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 45.10216765214376,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "NBIS": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 39.30082380318123,
-      "score": 0.2,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 45.58236762397825,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "NVDA": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-06",
-      "last_seen_on": "2026-11-09",
-      "rsi": 27.406206238538005,
-      "score": 38.3,
+      "last_seen_on": "2026-11-11",
+      "rsi": 28.739661188299223,
+      "score": 21.8,
       "severity": "watch"
     },
     "ONDS": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 46.63274718723108,
+      "last_seen_on": "2026-11-11",
+      "rsi": 44.739071493583666,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -265,17 +265,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 41.95594553899491,
-      "score": 3.4,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 49.42917476370592,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "POET": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 43.317370351816145,
+      "last_seen_on": "2026-11-11",
+      "rsi": 48.25136812025382,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -283,8 +283,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-05",
-      "last_seen_on": "2026-11-09",
-      "rsi": 63.759047034667944,
+      "last_seen_on": "2026-11-11",
+      "rsi": 64.76178481022774,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -292,26 +292,26 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 41.3868585939761,
-      "score": 3.7,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 46.0779159680704,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "RDDT": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-02",
-      "last_seen_on": "2026-11-09",
-      "rsi": 31.893819558794434,
-      "score": 17.2,
+      "last_seen_on": "2026-11-11",
+      "rsi": 37.279297590820434,
+      "score": 1.6,
       "severity": "watch"
     },
     "RIVN": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-27",
-      "last_seen_on": "2026-11-09",
-      "rsi": 57.218931257318886,
+      "last_seen_on": "2026-11-11",
+      "rsi": 52.18404062997347,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -319,8 +319,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-10-19",
-      "last_seen_on": "2026-11-09",
-      "rsi": 51.39425450438215,
+      "last_seen_on": "2026-11-11",
+      "rsi": 59.16727347128014,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -328,17 +328,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": "2026-11-06",
-      "last_seen_on": "2026-11-09",
-      "rsi": 30.010156247955862,
-      "score": 23.5,
+      "last_seen_on": "2026-11-11",
+      "rsi": 37.41545898445032,
+      "score": 3.1,
       "severity": "watch"
     },
     "SOFI": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 54.69498652165269,
+      "last_seen_on": "2026-11-11",
+      "rsi": 50.81255732037831,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -346,17 +346,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 45.875290730161936,
-      "score": 2.9,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 49.910619608269315,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "TSLA": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 49.935108732854545,
+      "last_seen_on": "2026-11-11",
+      "rsi": 54.36256895785019,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -364,8 +364,8 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 40.15948457911264,
+      "last_seen_on": "2026-11-11",
+      "rsi": 43.32368260641536,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -373,17 +373,17 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 45.841790756111244,
-      "score": 2.1,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 49.85346626865002,
+      "score": 0.0,
+      "severity": "neutral"
     },
     "WST": {
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 64.76543282864543,
+      "last_seen_on": "2026-11-11",
+      "rsi": 64.6781789724242,
       "score": 0.0,
       "severity": "neutral"
     },
@@ -391,12 +391,12 @@
       "alerting": false,
       "first_alert_on": null,
       "last_notified_on": null,
-      "last_seen_on": "2026-11-09",
-      "rsi": 45.76796894815349,
-      "score": 2.6,
-      "severity": "watch"
+      "last_seen_on": "2026-11-11",
+      "rsi": 49.738941865802545,
+      "score": 0.0,
+      "severity": "neutral"
     }
   },
-  "updated_at": "2026-11-10T20:37:13+00:00",
+  "updated_at": "2026-11-11T21:34:21+00:00",
   "version": 1
 }
